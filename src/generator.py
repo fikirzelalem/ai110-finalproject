@@ -1,12 +1,11 @@
 import os
 from typing import List, Dict
-import google.generativeai as genai
+from google import genai
 from dotenv import load_dotenv
 
 load_dotenv()
 
-genai.configure(api_key=os.getenv("GEMINI_API_KEY"))
-model = genai.GenerativeModel("gemini-1.5-flash")
+client = genai.Client(api_key=os.getenv("GEMINI_API_KEY"))
 
 
 def build_prompt(query: str, retrieved_docs: List[Dict]) -> str:
@@ -30,5 +29,16 @@ Give a helpful, conversational recommendation based strictly on the context abov
 def generate(query: str, retrieved_docs: List[Dict]) -> str:
     """Send the prompt to Gemini and return the response text."""
     prompt = build_prompt(query, retrieved_docs)
-    response = model.generate_content(prompt)
-    return response.text
+    try:
+        response = client.models.generate_content(
+            model="gemini-2.0-flash",
+            contents=prompt
+        )
+        return response.text
+    except Exception:
+        sources = ", ".join(set(doc["source"] for doc in retrieved_docs))
+        return (
+            f"[Demo mode — Gemini API unavailable]\n\n"
+            f"Based on your query, I found relevant information in: {sources}.\n"
+            f"Once the API is connected, I'll generate a full recommendation here."
+        )
