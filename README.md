@@ -28,6 +28,8 @@ The system searches a real knowledge base of genre guides, mood descriptions, an
 
 ## System Architecture
 
+![MoodMix AI Architecture](assets/architecture.png)
+
 ```
 User Input (Streamlit UI)
         │
