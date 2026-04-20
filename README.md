@@ -165,4 +165,12 @@ The hardest part was deciding what the system should refuse to do AKA the guardr
 
 ---
 
-*Built by Fikir Demeke | AI110- Final Project*
+## Portfolio Reflection
+
+Building Cadence AI showed me that I can take a any idea and turn it into something real. I started with a basic rule-based music recommender and ended up with a full applied AI system that retrieves knowledge, it checks its own work before answering, logs every interaction, and explains its reasonings as to why step by step. That progression matters to me because it shows I can build things that are not just functional but also things that are responsible.
+
+What this project says about me as an AI engineer is that I care about how a system behaves and not just whether it runs on the system. I spent more time thinking about what the system should refuse to do than on any other part of the build. I think that mindset is something I want to carry into every AI project I work on going forward.
+
+---
+
+*Built by Fikir Demeke | AI110 Final Project*
