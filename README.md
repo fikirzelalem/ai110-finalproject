@@ -112,6 +112,8 @@ python -m tests.test_system
 
 > 🚫 I can only help with music recommendations. That topic is outside my scope.
 
+![Guardrail Demo](assets/guardrail.png)
+
 ---
 
 ## Design Decisions
