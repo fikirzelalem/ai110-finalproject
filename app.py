@@ -95,31 +95,44 @@ if query:
     with st.chat_message("user"):
         st.markdown(query)
 
-    # Process and respond
+    # Process and respond with observable agentic steps
     with st.chat_message("assistant"):
-        with st.spinner("Searching knowledge base..."):
-            retrieved = retrieve(query, docs, top_k=3)
+        steps = st.container()
 
-        guardrail_passed, reason = check(query, retrieved)
+        with steps:
+            # Step 1: Retrieval
+            with st.spinner("🔍 Step 1: Searching knowledge base..."):
+                retrieved = retrieve(query, docs, top_k=3)
+            st.caption(f"✅ Step 1 complete: found {len(retrieved)} relevant source(s)")
 
-        if not guardrail_passed:
-            st.warning(f"🚫 {reason}")
-            st.session_state.messages.append({"role": "assistant", "content": f"🚫 {reason}"})
-            log(query, retrieved, reason, guardrail_passed=False)
-        else:
-            with st.spinner("Generating recommendation..."):
-                response = generate(query, retrieved)
+            # Step 2: Guardrail
+            with st.spinner("🛡️ Step 2: Running guardrail check..."):
+                guardrail_passed, reason = check(query, retrieved)
 
-            st.markdown(response)
+            if not guardrail_passed:
+                st.caption("🚫 Step 2 complete: guardrail blocked this query")
+                st.warning(f"🚫 {reason}")
+                st.session_state.messages.append({"role": "assistant", "content": f"🚫 {reason}"})
+                log(query, retrieved, reason, guardrail_passed=False)
+            else:
+                st.caption("✅ Step 2 complete: guardrail passed")
 
-            sources = [f"**{doc['source']}**: {doc['content'][:200]}..." for doc in retrieved]
-            with st.expander("📄 Sources used"):
-                for source in sources:
-                    st.caption(source)
+                # Step 3: Generation
+                with st.spinner("🤖 Step 3: Generating recommendation..."):
+                    response = generate(query, retrieved)
+                st.caption("✅ Step 3 complete: response ready")
 
-            st.session_state.messages.append({
-                "role": "assistant",
-                "content": response,
-                "sources": sources
-            })
-            log(query, retrieved, response, guardrail_passed=True)
+                st.divider()
+                st.markdown(response)
+
+                sources = [f"**{doc['source']}**: {doc['content'][:200]}..." for doc in retrieved]
+                with st.expander("📄 Sources used"):
+                    for source in sources:
+                        st.caption(source)
+
+                st.session_state.messages.append({
+                    "role": "assistant",
+                    "content": response,
+                    "sources": sources
+                })
+                log(query, retrieved, response, guardrail_passed=True)
