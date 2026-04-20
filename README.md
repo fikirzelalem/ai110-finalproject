@@ -154,7 +154,7 @@ The hardest part was deciding what the system should refuse to do AKA the guardr
 
 ## Loom Demo Walkthrough Video
 
-[Demo Video](https://www.loom.com/share/aa40920362f2431fa9c4876457842d11)
+[![Cadence AI Demo Walkthrough](https://cdn.loom.com/sessions/thumbnails/aa40920362f2431fa9c4876457842d11-with-play.gif)](https://www.loom.com/share/aa40920362f2431fa9c4876457842d11)
 
 ---
 
