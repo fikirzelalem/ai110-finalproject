@@ -6,6 +6,12 @@ from src.logger import log
 
 st.set_page_config(page_title="Cadence AI", page_icon="🎵", layout="centered")
 
+st.markdown("""
+<style>
+    * { font-family: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", sans-serif !important; }
+</style>
+""", unsafe_allow_html=True)
+
 # Session state for quick prompts
 if "quick_prompt" not in st.session_state:
     st.session_state.quick_prompt = None
@@ -17,7 +23,7 @@ with st.sidebar:
     st.divider()
 
     st.markdown("**Try a quick prompt:**")
-    if st.button("🌙 Chill study vibes"):
+    if st.button("🌙 Chill study night vibes"):
         st.session_state.quick_prompt = "suggest something chill and acoustic for studying"
     if st.button("💪 Gym energy"):
         st.session_state.quick_prompt = "high energy intense song for the gym"
@@ -29,11 +35,11 @@ with st.sidebar:
         st.session_state.quick_prompt = "intense rock song with high energy"
 
     st.divider()
-    st.markdown("**How it works:**")
+    st.markdown("**How the AI works:**")
     st.markdown("""
-1. You describe what you want
-2. Retriever searches the knowledge base
-3. Guardrail checks the question
+1. You describe what kind of vibe you want
+2. The Retriever searches the knowledge base
+3. The Guardrail checks the question
 4. Gemini generates a grounded response
 """)
     st.divider()
@@ -44,7 +50,7 @@ with st.sidebar:
         st.session_state.messages = []
         st.session_state.quick_prompt = None
         st.rerun()
-    st.caption("AI110 Module 4 | Extends Music Recommender (Module 3)")
+    st.caption("AI110 Module 4 | Cadence AI")
 
 @st.cache_resource
 def load_all_docs():
