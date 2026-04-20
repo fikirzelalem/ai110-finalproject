@@ -1,13 +1,13 @@
-# Model Card: MoodMix AI
+# Model Card: Cadence AI
 
 ## Model Name
-MoodMix AI
+Cadence AI
 
 ## What It Does
-MoodMix AI is a music recommendation assistant that uses Retrieval-Augmented Generation. You describe what you want in plain English and it searches a knowledge base of genre guides, mood descriptions, and a song catalog before generating a recommendation. It only answers questions related to music and refuses to respond when it cannot find relevant information.
+Cadence AI is a music recommendation assistant that uses Retrieval-Augmented Generation. You describe what you want in plain English and it searches a knowledge base of genre guides, mood descriptions, and a song catalog before generating a recommendation. It only answers questions related to music and refuses to respond when it cannot find relevant information.
 
 ## Base Project
-This system extends the Music Recommender Simulation from AI110 Module 3. The original project used a weighted rule-based scoring function to rank songs by genre, mood, energy, and acoustic preference. MoodMix AI keeps that song catalog and adds a natural language interface, a RAG pipeline, Gemini integration, and guardrails on top.
+This system extends the Music Recommender Simulation from AI110 Module 3. The original project used a weighted rule-based scoring function to rank songs by genre, mood, energy, and acoustic preference. Cadence AI keeps that song catalog and adds a natural language interface, a RAG pipeline, Gemini integration, and guardrails on top.
 
 ## How It Works
 When you type a question, the retriever searches the docs folder for relevant chunks using keyword matching. The top three results get passed to Gemini along with your question. Gemini is instructed to answer using only that context. If the retriever comes back empty or the question is off-topic, the guardrail blocks the request instead of letting the model guess.

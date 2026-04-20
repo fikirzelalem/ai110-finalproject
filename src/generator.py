@@ -13,7 +13,7 @@ def build_prompt(query: str, retrieved_docs: List[Dict]) -> str:
     context = "\n\n".join(
         f"[{doc['source']}]\n{doc['content']}" for doc in retrieved_docs
     )
-    return f"""You are MoodMix AI, a music recommendation assistant.
+    return f"""You are Cadence AI, a music recommendation assistant.
 Use only the information provided below to answer the user's question.
 Do not make up songs, artists, or facts that are not in the context.
 

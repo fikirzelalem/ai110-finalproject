@@ -1,7 +1,7 @@
-# How MoodMix AI Works
+# How Cadence AI Works
 
 ## Overview
-MoodMix AI is a music recommendation assistant that uses Retrieval-Augmented Generation (RAG). Instead of relying purely on an AI model to guess what songs you might like, it first searches a real knowledge base of music information and then uses that evidence to generate a recommendation.
+Cadence AI is a music recommendation assistant that uses Retrieval-Augmented Generation (RAG). Instead of relying purely on an AI model to guess what songs you might like, it first searches a real knowledge base of music information and then uses that evidence to generate a recommendation.
 
 ## Step 1: You Ask a Question
 You type a natural language question like "what should I listen to when I'm studying late at night?" or "suggest something chill and acoustic."

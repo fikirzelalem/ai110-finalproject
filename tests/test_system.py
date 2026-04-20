@@ -1,5 +1,5 @@
 """
-Test harness for MoodMix AI.
+Test harness for Cadence AI.
 Runs predefined inputs through retriever and guardrail and prints a pass/fail summary.
 """
 
@@ -56,7 +56,7 @@ def run_tests():
     failed = 0
 
     print("\n" + "=" * 60)
-    print("MoodMix AI — Test Harness")
+    print("Cadence AI — Test Harness")
     print("=" * 60)
 
     for i, case in enumerate(TEST_CASES, 1):

@@ -1,4 +1,4 @@
-# MoodMix AI
+# Cadence AI
 
 A RAG-powered music recommendation assistant built on top of the Music Recommender Simulation (AI110 Module 3).
 
@@ -10,13 +10,13 @@ A RAG-powered music recommendation assistant built on top of the Music Recommend
 
 The Music Recommender Simulation was a rule-based recommendation engine built in Python. It scored songs from an 18-song catalog against a user's preferred genre, mood, energy level, and acoustic preference using a weighted scoring function. The system ran entirely from the command line and produced ranked recommendations with plain-English explanations for each result.
 
-MoodMix AI extends that foundation by adding a natural language interface, a RAG pipeline that retrieves music knowledge before generating a response, a Gemini-powered generator, and a Streamlit UI. It turns a CLI script into a full applied AI system.
+Cadence AI extends that foundation by adding a natural language interface, a RAG pipeline that retrieves music knowledge before generating a response, a Gemini-powered generator, and a Streamlit UI. It turns a CLI script into a full applied AI system.
 
 ---
 
 ## What It Does
 
-MoodMix AI lets you describe what you're in the mood for in plain English and returns a grounded music recommendation. Instead of filling out preference fields, you just type something like:
+Cadence AI lets you describe what you're in the mood for in plain English and returns a grounded music recommendation. Instead of filling out preference fields, you just type something like:
 
 - *"suggest something chill and acoustic for studying"*
 - *"I want high energy pop for working out"*
@@ -28,7 +28,7 @@ The system searches a real knowledge base of genre guides, mood descriptions, an
 
 ## System Architecture
 
-![MoodMix AI Architecture](assets/architecture.png)
+![Cadence AI Architecture](assets/architecture.png)
 
 ```
 User Input (Streamlit UI)
@@ -144,7 +144,7 @@ The biggest limitation is that keyword search misses synonyms. "melancholy" won'
 
 ## Reflection
 
-Building MoodMix AI showed me that retrieval is often more important than generation. Gemini is capable of producing convincing music recommendations from nothing, but those recommendations would be made up. The RAG layer is what makes the system trustworthy because it forces the model to work with real data.
+Building Cadence AI showed me that retrieval is often more important than generation. Gemini is capable of producing convincing music recommendations from nothing, but those recommendations would be made up. The RAG layer is what makes the system trustworthy because it forces the model to work with real data.
 
 The hardest part was not the code, it was deciding what the system should refuse to do. A guardrail that fires too often is useless, and one that fires too rarely defeats the purpose. Getting that balance right required actually testing edge cases instead of just assuming the happy path would work.
 

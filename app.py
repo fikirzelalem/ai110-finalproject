@@ -4,13 +4,13 @@ from src.guardrail import check
 from src.generator import generate
 from src.logger import log
 
-st.set_page_config(page_title="MoodMix AI", page_icon="🎵", layout="centered")
+st.set_page_config(page_title="Cadence AI", page_icon="🎵", layout="centered")
 
 # Sidebar
 with st.sidebar:
-    st.title("About MoodMix AI")
+    st.title("About Cadence AI")
     st.markdown("""
-MoodMix AI is a music recommendation assistant that uses **Retrieval-Augmented Generation (RAG)**.
+Cadence AI is a music recommendation assistant that uses **Retrieval-Augmented Generation (RAG)**.
 
 Instead of guessing, it searches a real knowledge base of genres, moods, and songs before generating a recommendation.
 
@@ -30,7 +30,7 @@ Instead of guessing, it searches a real knowledge base of genres, moods, and son
     st.caption("Extends the Music Recommender Simulation (Module 3)")
 
 # Main content
-st.title("🎵 MoodMix AI")
+st.title("🎵 Cadence AI")
 st.markdown("##### Your RAG-powered music recommendation assistant")
 st.markdown("Describe your mood or what you're looking for and get a recommendation grounded in real data.")
 
